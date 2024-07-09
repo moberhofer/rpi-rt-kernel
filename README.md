@@ -11,10 +11,11 @@ The fully preempt rt model is enabled inside `Dockerfile` using `./scripts/confi
 ## How to build the `sdcard` image
 
 Clone this repository and run `make`. It will create a folder `build` with a zipped sdcard image. Default values:
-- linux kernel version 6.6 (you may change it inside `Dockerfile`)
-- a compatible rt patch needs to be downloaded from `https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/`
+- linux kernel version 6.6.36 (you may change it inside `Dockerfile`). Must be the same as most recent raspberry pi OS Kernel
+- a compatible rt patch will be downloaded from `https://mirrors.edge.kernel.org/pub/linux/kernel/projects/rt/`
 - the latest raspbian image is downloaded from `https://downloads.raspberrypi.org/raspios_lite_arm64/images/`
 - building by default an image compatible with pi3, pi4, pi400, piCM3, and piCM4.
+- building with 4 threads by default. You may change it inside 'Dockerfile': make -j4 ... (change 4 to number of available cores of your machine)
 
 you can run `make [platform]` where `platform` is either `Pi1`, `Pi2`, `PiZero`, `PiCM1`, `Pi3`, `Pi4i`, `Pi400`, `PiZero2`, `PiCM3`, or `PiCM4`.
 
